@@ -3,8 +3,6 @@ class CommentsController < ApplicationController
 before_action :authenticate_user!, only: [:new, :create, 
   :edit, :update, :destroy]
 
-end 
-
   def index
     @comments = Comment.all
   end
@@ -35,8 +33,8 @@ end
     end
   end
 
-def update
-      @comment = Comment.find(params[:id])
+  def update
+    @comment = Comment.find(params[:id])
     respond_to do |format|
       if @comment.update(comment_params)
         format.html { redirect_to @track, notice: 'Comment was successfully updated.' }
@@ -46,7 +44,7 @@ def update
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
-end 
+  end 
   
   def destroy
     @comment = Comment.find(params[:id])
@@ -66,5 +64,6 @@ end
       params.require(:commnent).permit(:feedback, :track_id, :user_id)
     end
   end
+end
 
 
