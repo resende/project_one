@@ -1,0 +1,23 @@
+<%= form_for(@track) do |f|  %>
+
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  
+
+    <%= f.label :song %>
+    <%= f.file_field :song %>
+
+
+    <%= f.label :length %><br>
+    <%= f.text_field :length %>
+
+
+    <%= f.collection_check_boxes :user_id, User.all, :id, :name do |b| %>
+      <%= b.check_box + b.label { b.text } %><br>
+    <% end %>
+
+
+ 
+  <%= f.submit %>
+
+  <% end %>

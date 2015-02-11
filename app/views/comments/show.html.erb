@@ -1,0 +1,24 @@
+<div class="comments">
+  <p>
+    <strong>Comments:</strong>
+    <%= @comments.feedback %>
+  </p>
+
+  <p>
+    <strong>length:</strong>
+    <%= @track.length %>
+  </p>
+
+  <p>
+  <%= audio_tag @track.song, controls: true, class: 'song-player' %> 
+  
+  </p>
+  <strong>Feedback:</strong>
+    <% @track.comments.each do |comment| %>
+    <%= comment.feedback  %>
+<% end %> 
+</div>
+
+
+<%= link_to 'Edit', edit_comment_path(@comment) %> |
+<%= link_to 'Back', comments_path %>

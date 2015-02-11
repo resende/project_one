@@ -1,0 +1,42 @@
+<% "User" %>
+
+  <p>
+    <strong>Name:</strong>
+    <%= @user.name %>
+  </p>
+
+  <p>
+    <%= image_tag @user.image if @user.image %>
+  </p>
+
+  <p>
+    <strong>About:</strong>
+    <%= @user.about %>
+  </p>
+
+  <p>
+    <strong>Contact:</strong>
+    <%= @user.contact %>
+  </p>
+
+  <p> 
+    <strong>Genre:</strong>
+    <%= @user.genre %>
+  </p>
+
+  <p> 
+    <strong> Songs: </strong>
+    <% @user.tracks.each do |track| %>
+    <%= track.title  %>
+  <% end %>e
+ </p>
+ <p> 
+  <strong> Feedback: </strong>
+    <% @user.comments.each do |comment| %>
+    <%= comment.feedback  %>
+  <% end %> 
+ </p> 
+   
+
+<%= link_to 'Back to all Users', root_path %>
+

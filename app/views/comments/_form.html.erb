@@ -1,0 +1,17 @@
+<%= form_for(@comment) do |f|  %>
+
+    <%= f.label :feedback %><br>
+    <%= f.text_field :feedback %>
+  
+
+    <%= f.label :song_id %>
+    <%= f.file_field :song_id %>
+
+       <%= f.collection_check_boxes :user_id, User.all, :id, :name do |b| %>
+      <%= b.check_box + b.label { b.text } %><br>
+    <% end %>
+
+ 
+  <%= f.submit %>
+
+  <% end %>
