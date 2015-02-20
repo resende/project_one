@@ -14,51 +14,197 @@
  *= require_self
  */
 
+/*user page show page */
 
+#background {
+  background: white; 
+  margin: 0px; 
+  padding-top: 20px; 
+  padding-left: 10px;
+}
+
+/*main page images*/
 
 img {
-  width: 250px;
-  height: 250px;
-  border: 1px solid #6B1229;
+  width: 400px;
+  height: 400px;
+  padding: 0px;
+}
+/*nav bar styling*/
+
+ 
+.header h1 { 
+  float: left;
+  margin: 0;
+  font-family: helvetica; 
+  font-size: 24px; 
+  padding: 5px; 
+}  
+
+.main_page {
+  margin-top: 50px;
+  background-color: white; 
+} 
+
+.menu {
+  float: right;
+}
+
+.menu li { 
+  display: inline;
+  font-family: helvetica; 
+  font-size: 24px; 
+  padding: 10px; 
+}
+
+.header {
+  padding: 10px;
+  text-align:center;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  top:0;
+  left:0;
+  margin:0 auto;
+  overflow: hidden;
+  list-style: none;
+  background-color: black; 
+  color: blue;  
+  height: 50px; 
+  padding-top: 5px; 
+}
+
+.header a:visited {
+  color: white;
+}
+
+/*user page styling*/
+
+.namez {
+  font-size: 72px; 
+  font-weight: bold;  
+}
+
+.page_image {
+  width: auto;
+  height: auto;
+  padding: 0px;
+  display: inline-block;
+}
+
+.details {
+  float: left;
+  font-size: 36px; 
 }
 
 
-header {
+.about li {
+  list-style: none; 
 
-
-list-style: none; 
-/* text-align:center;*/
- border-bottom:1px solid #ccc;
- position: fixed;
- width: 100%;
- background: white;
- z-index: 10;
- /*top, right, bottom, left */
- top:0;
- left:0;
+  padding-right: 150px;  
 }
 
-body {
- font-family: helvetica; }
 
-
- .wrapper {
- width:80%;
- margin:0 auto;
- background:#eee;
- overflow:hidden;
-}
-body {
-
- background: ('background_gradient_by_greenmagician-d703kjt.png'); 
- position: absolute;
- color: black;
- z-index: 10;
- width: 100%;
- height: 100%;
- text-align: center;
- padding-top: 150px;
- transition:all 1s; 
+.songs {
+  width: 500px;
+  display: inline-block; 
+  font-size: 14px; 
+  padding: 20px;  
 }
 
+.feedback {
+  display: inline-block;
+  font-size: 18px; 
+  float: right; 
+  padding-right: 220px;
+}
+
+
+.about {
+
+display: inline-block;
+font-size: 18px; 
+float: right; 
+padding-right: 50px;
+}
+
+.comments li {
+  clear: both;
+  list-style: none; 
+  font-size: 18px; 
+  padding-right: 10px; 
+  float: center; 
+  padding-top: 10px; 
+  padding-left: 60px; 
+}
+
+.comments {
+  padding-right: 40px; 
+}
+
+.controls {
+  padding-top: 150px; 
+  padding-left: 80px; 
+  list-style: none;  
+  font-size: 18px; 
+  padding-right: 20px; 
+  color: black; 
+}
+
+.track {
+  float: right; 
+  padding-right: 100px; 
+}
+
+.track_title {
+}
+
+
+.new_comment{
+  margin-top:10%;
+  float: right; 
+}
+
+
+.comment_form ul {
+  width: 60%;
+  float: center;
+  list-style: none; 
+  padding: 100px;
+}
+
+
+.tracks_new {
+  width: 60%;
+  float: center;
+  list-style: none; 
+  padding: 100px;
+}
+
+.controls a:visited {
+  color: black;
+}
+
+.new_comment a:visited {
+  color: black;
+}
+
+a:visited {
+  color: black;
+}
+
+
+.edit_profile { 
+  width: 100%;
+  text-align: center;
+  list-style: none; 
+  padding: 100px;
+}
+
+a {
+  min-width: 200px;
+  width: 50%;
+  max-width: 100px;
+  margin: 0 auto; 
+}
 

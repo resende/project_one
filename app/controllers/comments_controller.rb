@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
  
 before_action :authenticate_user!, only: [:new, :create, 
   :edit, :update, :destroy]
+  authorize_resource
 
   def index
     @comments = Comment.all
@@ -9,10 +10,11 @@ before_action :authenticate_user!, only: [:new, :create,
 
   def show
     @comments = Comment.find(params[:id])
+    @comment = Comment.new 
   end
 
   def new
-    @comment = comment.new
+    @comment = Comment.new
   end
 
   def edit
@@ -20,11 +22,16 @@ before_action :authenticate_user!, only: [:new, :create,
   end
 
   def create
-    @comment = Comment.new(track_params)
+    @comment = Comment.new(comment_params)
+      @comment.user_id = current_user.id 
+      
+    # if  @comment.save 
+    #   redirect_to current_user_path
+    # end 
 
      respond_to do |format|
       if @comment.save
-        format.html { redirect_to @comment, notice: 'Comment Submitted' }
+        format.html { redirect_to comments_url, notice: 'Comment Submitted' }
         format.json { render :show, status: :created, location: @comment }
       else
         format.html { render :new }
@@ -50,7 +57,7 @@ before_action :authenticate_user!, only: [:new, :create,
     @comment = Comment.find(params[:id])
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to commnets_url, notice: 'Comment was deleted.' }
+      format.html { redirect_to comments_url, notice: 'Comment was deleted.' }
       format.json { head :no_content }
     end
   end
@@ -61,9 +68,9 @@ before_action :authenticate_user!, only: [:new, :create,
     end
 
     def comment_params
-      params.require(:commnent).permit(:feedback, :track_id, :user_id)
+      params.require(:comment).permit(:feedback, :track_id, :user_id)
     end
-  end
 end
+
 
 

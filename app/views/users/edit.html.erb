@@ -1,5 +1,6 @@
-<%= form_for(@user) do |f| %>
+<div class="edit_profile">
 
+<%= form_for(@user) do |f| %>
 
   <%= f.label :name %>
    <%= f.text_field :name %>
@@ -17,7 +18,10 @@
    <%= f.text_field :genre %>
 <br> 
 
+<li><%= link_to 'Manage Songs', tracks_path %></li> 
 
-   <%= f.submit %>
+<%= f.submit %>
+<%= link_to 'Cancel', root_path %>
+<% end %>
 
- <% end %>
+<div> 

@@ -1,17 +1,18 @@
-<%= form_for(@comment) do |f|  %>
 
-    <%= f.label :feedback %><br>
-    <%= f.text_field :feedback %>
-  
+<div class="comment_form">
+  <ul>
+<li><%= form_for(@comment) do |f|  %></li>
+<li><%= "Enter Feedback " %></li>  
+<li><%= f.label :feedback %></li>  
+<li><%= f.text_field :feedback %></li>
 
-    <%= f.label :song_id %>
-    <%= f.file_field :song_id %>
+<li><%= f.label :track %></li>
+<li><%= f.collection_select(:track_id, Track.all, :id, :title ) %> 
 
-       <%= f.collection_check_boxes :user_id, User.all, :id, :name do |b| %>
-      <%= b.check_box + b.label { b.text } %><br>
-    <% end %>
+    <li><%= f.submit %></li>
+     <li><%= link_to 'Back to Users', root_path %>
+   </li> 
 
- 
-  <%= f.submit %>
-
-  <% end %>
+  </ul>
+<% end %>
+</div>

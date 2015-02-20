@@ -1,9 +1,13 @@
 
-<div class="tracks">
-  <p>
-    <strong>Title:</strong>
-    <%= @track.title %>
-  </p>
+<p>
+<strong>User name:</strong>
+  <%= @track.user.name %>
+</p>
+
+ <p>
+  <strong>Title:</strong>
+  <%= @track.title %>
+ </p>
 
   <p>
     <strong>length:</strong>
@@ -11,15 +15,20 @@
   </p>
 
   <p>
-  <%= audio_tag @track.song, controls: true, class: 'song-player' %> 
-  
+    <%= audio_tag @track.song, controls: true, class: 'song-player' %> 
   </p>
-  <strong>Feedback:</strong>
+   
+  <p>  
+   <strong>Feedback:</strong>
     <% @track.comments.each do |comment| %>
-    <%= comment.feedback  %>
-<% end %> 
-</div>
+    <%= comment.feedback %>
+   <% end %> 
+  </p>
+  
+  <p>
+  <%= render 'comments/form' %>
 
-
-<%= link_to 'Edit', edit_track_path(@track) %> |
-<%= link_to 'Back', tracks_path %>
+   <%= link_to 'Edit', edit_track_path(@track) %> |
+   <%= link_to 'Back', tracks_path %>
+ 
+ </p>

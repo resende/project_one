@@ -2,6 +2,30 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    # As we want everyone to be able to view our blog we don't need to set this default user.
+    # We don't care about permissions for people who haven't logged in
+    alias_action :edit, :update, :delete, :destroy, to: :modify
+
+    user ||= User.new
+
+    if user.admin?
+      can :manage, :all
+    elsif user.user?
+      can [:create, :edit, :destroy], Track, user_id: user.id
+      can [:create, :edit, :destroy], Comment, user_id: user.id
+    else
+     
+    end
+    can :read, :all
+    can :modify, User, id: user.id
+    # can [:new, :create], User
+  end
+end
+    
+    # can [:edit, :update], Post, user_id: user.id
+    # can [:new, :create], Post
+
+
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)
@@ -28,5 +52,4 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
-  end
-end
+  
