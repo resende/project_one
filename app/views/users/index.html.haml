@@ -1,0 +1,6 @@
+%table
+  %tbody
+    - @users.each do |user|
+      = link_to (image_tag user.image), user
+  
+

@@ -1,0 +1,17 @@
+.comment_form 
+  %ul
+    %li
+      = form_for(@comment) do |f|
+        %li= "Enter Feedback "
+        %li= f.label :feedback
+        %li= f.text_field :feedback
+
+        %li= f.label :track
+        %li= f.collection_select(:track_id, Track.all, :id, :title )
+
+        %li= f.submit 
+        %li= link_to 'Back to Users', root_path
+
+
+
+

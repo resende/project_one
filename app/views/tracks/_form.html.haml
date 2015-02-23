@@ -1,0 +1,9 @@
+.tracks_new
+  = form_for(@track) do |f|
+    %a= f.label :title
+    %a= f.text_field :title
+    %a= f.label :song
+    %a= f.file_field :song
+    %a= f.label :length
+    %a= f.text_field :length
+    = f.submit

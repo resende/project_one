@@ -1,0 +1,22 @@
+%p
+  %strong User name:
+  = @track.user.name
+%p
+  %strong Title:
+  = @track.title
+%p
+  %strong length:
+  = @track.length
+%p
+  = audio_tag @track.song, controls: true, class: 'song-player'
+%p
+  %strong Feedback:
+  - @track.comments.each do |comment|
+    = comment.feedback
+%p
+  = render 'comments/form'
+  = link_to 'Edit', edit_track_path(@track)
+  |
+  \#{link_to 'Back', tracks_path}
+%br/
+= link_to 'New Track', new_track_path

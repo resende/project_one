@@ -1,0 +1,14 @@
+.table
+  %thead
+  %tr
+  %thName
+  .colspan
+  %tbody
+    -@comments.each do |comment|
+      =comment.feedback
+      =link_to 'Show', comment  
+      =link_to 'Edit', edit_comment_path(comment)
+      =link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' }
+
+
+=link_to 'New Comment', new_comment_path 
